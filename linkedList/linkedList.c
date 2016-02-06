@@ -4,7 +4,7 @@
  *  Created on: Oct 25, 2014
  *      Author: joncronin
  */
-#include "linkedList_pub.h"
+#include "../includes/linkedList_pub.h"
 #include <stdlib.h>
 
 /*
@@ -88,6 +88,7 @@ int linkedListAddVal(linkedList *list, int val)
       return -1;
    }
 
+   newNode->data = val;
    return linkedListAddEntryInOrder(list,newNode);
 }
 int linkedListAddEntryToHead(linkedList *list, linkedListNode *newNode)
@@ -130,6 +131,10 @@ int linkedListAddEntryToTail(linkedList *list, linkedListNode *newNode)
 
 int linkedListAddEntryInOrder(linkedList *list,linkedListNode *newNode)
 {
+   //FIXME onla throwing everything onto head for time being, order later
+   // Also need to add error checking
+   linkedListAddEntryToHead(list, newNode);  
+
    return 1;
 }
 
