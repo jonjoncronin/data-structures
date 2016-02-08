@@ -11,6 +11,6 @@ to implement them in the C programming language.
 There are many resources on data structures in C, but free ones are
 the best. Here are some that we have found helpful while we were exploring.
 
-Yale's [Notes on Data Structures and Programming](www.cs.yale.edu/homes/aspnes/classes/223/notes.pdf) (CPSC 223, Spring 2015)
+Yale's CPSC 223, Sprint 2015 - www.cs.yale.edu/homes/aspnes/classes/223/notes.pdf
 
 ##### Authors- Jon Cronin, Scott McDonald
