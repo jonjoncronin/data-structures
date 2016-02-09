@@ -4,8 +4,12 @@
  *  Created on: Oct 25, 2014
  *      Author: joncronin
  */
-#include "linkedList_pub.h"
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <stdlib.h>
+#include "linkedList_pub.h"
 
 int linkedListDoesEntryExist(linkedList *list, linkedListNode *node)
 {
@@ -92,3 +96,6 @@ int linkedListDeleteList(linkedList *list)
    free(list);
    return 1;
 }
+#ifdef __cplusplus
+}
+#endif
