@@ -9,11 +9,51 @@ extern "C" {
 #endif
 
 #include <stdlib.h>
+#include <stdbool.h>
+#include <string.h>
+#include <assert.h>
 #include "linkedList_pub.h"
 
-int linkedListDoesEntryExist(linkedList *list, linkedListNode *node)
+int linkedListDoesEntryExist(linkedList *list, linkedListNode *node, linkedListNode *prevNode)
 {
-   return -1;
+   linkedListNode *nodePtr;
+   linkedListNode *prevNodePtr;
+   bool found = false;
+
+   if(!list || !node)
+   {
+      return -1;
+   }
+
+   if(list->length == 0)
+   {
+      return 0;
+   }
+
+   nodePtr = list->headPtr;
+   prevNodePtr = NULL;
+
+   while(nodePtr != NULL)
+   {
+      if(memcmp(node->data, nodePtr->data, node->dataSize) == 0)
+      {
+         found = true;
+         break;
+      }
+      prevNodePtr = nodePtr;
+      nodePtr = nodePtr->nextNode;
+   }
+
+   if(found)
+   {
+      prevNode = prevNodePtr;
+      return 1;
+   }
+   else
+   {
+      prevNode = NULL;
+      return 0;
+   }
 }
 
 int linkedListAddEntryToHead(linkedList *list, linkedListNode *newNode)
@@ -55,6 +95,32 @@ int linkedListAddEntryToTail(linkedList *list, linkedListNode *newNode)
 
 int linkedListRemoveEntry(linkedList *list, linkedListNode *node)
 {
+   linkedListNode *prevNode;
+
+   if(!list || !node)
+      {
+         return -1;
+      }
+   if(list->length == 0)
+   {
+      return -1;
+   }
+
+   if(linkedListDoesEntryExist(list,node,prevNode) == 0)
+   {
+      if(prevNode == NULL)
+      {
+         assert(prevNode == list->headPtr);
+         list->headPtr = NULL;
+      }
+      else
+      {
+         prevNode->nextNode = node->nextNode;
+      }
+      list->length--;
+      memset(node, 0, sizeof(linkedListNode));
+      free(node);
+   }
    return 1;
 }
 

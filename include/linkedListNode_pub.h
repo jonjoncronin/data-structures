@@ -12,6 +12,7 @@
 typedef struct _linkedListNode
 {
       void *data;
+      size_t dataSize;
       struct _linkedListNode *nextNode;
 } linkedListNode;
 

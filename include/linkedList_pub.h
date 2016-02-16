@@ -12,7 +12,8 @@
 extern "C" {
 #endif
 
-#include "../include/linkedListNode_pub.h"
+#include "linkedListNode_pub.h"
+
 /* Linked List structures and public APIs */
 typedef struct _linkedList
 {
@@ -22,7 +23,7 @@ typedef struct _linkedList
       linkedListNode *tailPtr;
 } linkedList;
 
-extern int linkedListDoesEntryExist(linkedList *list, linkedListNode *node);
+extern int linkedListDoesEntryExist(linkedList *list, linkedListNode *node, linkedListNode *prevNode);
 extern int linkedListAddEntryToHead(linkedList *list, linkedListNode *newNode);
 extern int linkedListAddEntryToTail(linkedList *list, linkedListNode *newNode);
 extern int linkedListRemoveEntry(linkedList *list, linkedListNode *node);
