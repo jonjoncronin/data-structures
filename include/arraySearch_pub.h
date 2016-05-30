@@ -12,8 +12,8 @@
 extern "C" {
 #endif
 
-extern bool doesEntryExistLinear(void *data, void* array, int arraySize);
-extern bool doesEntryExistBinary(void *data, void* array, int arraySize);
+extern bool doesEntryExistLinear(int value, int array[], int arraySize);
+extern bool doesEntryExistBinary(int value, int array[], int arraySize);
 #ifdef __cplusplus
 }
 #endif

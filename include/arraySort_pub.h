@@ -12,9 +12,12 @@
 extern "C" {
 #endif
 
-extern int bubbleSortArray(void *array, int arraySize);
-extern int insertSortArray(void *array, int arraySize);
-extern int mergeSortArray(void *array, int arraySize);
+extern int selectionSortArray (int array[], int arraySize);
+extern int bubbleSortArray(int array[], int arraySize);
+extern int insertSortArray(int array[], int arraySize);
+extern int mergeSortArray(int array[], int arraySize);
+extern int quickSortArray(int array[], int arraySize);
+extern int shellSortArray(int array[], int arraySize);
 
 #ifdef __cplusplus
 }
